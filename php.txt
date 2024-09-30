@@ -1,0 +1,88 @@
+Q.1) Insert
+<?php
+$m=new MongoClient();
+echo "Connection to Database Succesfully";
+
+$db=$m->mydb;
+echo "Database my db selected";
+$collection=$db->mycol;
+echo "Collection selected succesfully";
+
+$doc=array(
+"title" => "MongoDB",
+"description" => "database",
+"like"=>100,
+"url"=>"http://www.mongo.com",
+"by"=>"NoSql");
+
+$collection->insert($doc);
+echo "Document inserted succesfully";
+?>
+
+Q.2) Retrieve
+<?php
+$m=new MongoClient();
+echo "Connection to Database Succesfully";
+$db=$m->mydb;
+echo "Database my db selected";
+$collection=$db->mycol;
+echo "Collection selected succesfully";
+
+$cursor=$collection->find();
+
+foreach ($cursor as $doc){
+echo "<br>".$doc["title"]."<br>";
+echo "<br>".$doc["description"]."<br>";
+echo "<br>".$doc["url"]."<br>";
+echo "<br>".$doc["like"]."<br>";
+}
+?>
+
+Q.3) Update
+<?php
+   $m = new MongoClient();
+   echo "Connection to database successfully";
+	
+   $db = $m->mydb;
+   echo "Database mydb selected";
+   $collection = $db->mycol;
+   echo "Collection selected succsessfully";
+
+   $collection->update(array("title"=>"MongoDB"), 
+      array('$set'=>array("title"=>"MongoDB Tutorial")));
+   echo "Document updated successfully";
+	
+   $cursor = $collection->find();
+	
+   echo "Updated document";
+	
+   foreach ($cursor as $document) {
+      echo $document["title"] . "<br>";
+   }
+?>
+SS
+Q.4) Delete
+<?php
+   $m = new MongoClient();
+   echo "Connection to database successfully";
+	
+   $db = $m->mydb;
+   echo "Database mydb selected";
+   $collection = $db->mycol;
+   echo "Collection selected succsessfully";
+   
+   $collection->remove(array("title"=>"MongoDB Tutorial"));
+   echo "Documents deleted successfully";
+   
+   $cursor = $collection->find();
+	
+   echo "Delete document";
+	
+   foreach ($cursor as $document) {
+      echo $document["title"] . "\n";
+   }
+?>
+
+Output :
+ 
+ 

@@ -1,0 +1,45 @@
+                                       
+Aim : Aggregate functions: MongoDB advanced queries using aggregation
+
+Q1) Insert employee (id, name, age, city, salary) collection with 10 records in the database and display all the records.
+
+1. Group by function to get count.
+db.Employee.aggregate([{$group:{_id:"$city",num_emp:{$sum:1}}}])
+
+2. Sum function.
+db.Employee.aggregate([{$group:{_id:"$city",total_sal:{$sum:"$sal"}}}])
+
+3. Avg function. 
+db.Employee.aggregate([{$group:{_id:"$city",avg_sal:{$avg:"$sal"}}}])
+ 
+4. Min function 
+db.Employee.aggregate([{$group:{_id:"$city",min_sal:{$min:"$sal"}}}])
+ 
+5. Max function. 
+db.Employee.aggregate([{$group:{_id:"$city",max_sal:{$max:"$sal"}}}])
+ 
+6. Push function
+db.Employee.aggregate([{$group:{_id:"$city",num_tutorial:{$push:"$sal"}}}])
+ 
+7. addToSet function 
+db.Employee.aggregate([{$group:{_id:"$city",url:{$addToSet:"$sal"}}}])
+ 
+8. First function 
+9. Last function
+
+Q 2) Create a Collection Student with the following Fields (s_id,sname,age,city,courses,marks) where courses is an array perform the Following Queries based on the collection.
+
+
+1.Write a MongoDB query to use sum, avg, min and max expression. 
+
+
+2.Write a MongoDB query to use push and addToSet expression. 
+ 
+
+3.Write a MongoDB query to use first and last expression.
+
+ 
+
+
+
+
